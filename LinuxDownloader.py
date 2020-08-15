@@ -1,6 +1,7 @@
 import yaml
 import sys
 import os
+import subprocess
 
 def create_folder(dirName):
     # Create target Directory if don't exist
@@ -9,6 +10,15 @@ def create_folder(dirName):
         print("Directory ", dirName, " Created ")
     else:
         print("Directory ", dirName, " already exists")
+
+
+def download_file_aria2c(afile):
+    # download (using aria2c) files
+    if os.path.exists(afile) and not os.path.exists(afile + '.aria2'):
+        print('Skipping already-retrieved file: ' + afile)
+    else:
+        print('Downloading file: ' + afile)
+        subprocess.Popen(["aria2c", "-x", "16", "-s", "20", str(afile)]).wait()
 
 
 with open('example.yml') as f:
