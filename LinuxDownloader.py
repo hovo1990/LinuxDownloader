@@ -68,10 +68,13 @@ def main(config_file, download_location):
 
 
 if __name__ == "__main__":
+
+    path_to_download_folder = str(os.path.join(Path.home(), "Downloads"))
+
     parser = argparse.ArgumentParser(description='A tutorial of argparse!')
     parser.add_argument("--config_file", help='config file in YAML format to download images')
 
-    parser.add_argument("--directory", help='directory to download images')
+    parser.add_argument("--directory", help='directory to download images', default=path_to_download_folder)
 
     args = parser.parse_args()
 
