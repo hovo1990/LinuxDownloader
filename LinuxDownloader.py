@@ -27,12 +27,12 @@ def strip_filename(url):
 
 def download_file_aria2c(url, download_folder):
     # download (using aria2c) files
-    afile = ''
+    afile = strip_filename(url)
     if os.path.exists(afile) and not os.path.exists(afile + '.aria2'):
         print('Skipping already-retrieved file: ' + afile)
     else:
         print('Downloading file: ' + afile)
-        subprocess.Popen(["aria2c", "-x", "16", "-s", "20", "-d", "{}".format(download_folder), str(afile)]).wait()
+        subprocess.Popen(["aria2c", "-x", "16", "-s", "20", "-d", "{}".format(download_folder), str(url)]).wait()
 
 
 with open('example.yml') as f:
@@ -54,6 +54,12 @@ with open('example.yml') as f:
 
         folder_to_create = folder['name']
         create_folder(folder_to_create)
+
+        urls = folder['url']
+
+        folder_download =  './{}'.format(folder_to_create)
+        for url in urls:
+            download_file_aria2c(url,folder_download)
 
         print('----------------------\n')
 
