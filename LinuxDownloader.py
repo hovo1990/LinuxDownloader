@@ -1,7 +1,10 @@
+import argparse
 import yaml
 import sys
 import os
 import subprocess
+from pathlib import Path
+
 
 def create_folder(dirName):
     # Create target Directory if don't exist
@@ -35,34 +38,45 @@ def download_file_aria2c(url, download_folder):
         subprocess.Popen(["aria2c", "-x", "16", "-s", "20", "-d", "{}".format(download_folder), str(url)]).wait()
 
 
-with open('example.yml') as f:
-    # data = yaml.load(f, Loader=yaml.FullLoader)
-    data = yaml.load(f)
-    print(data)
+def main(config_file, download_location):
+    with open(config_file) as f:
+        # data = yaml.load(f, Loader=yaml.FullLoader)
+        data = yaml.load(f)
+        print(data)
 
-    try:
-        sub_stuff = data[0]['Folders']
-    except Exception as e:
-        print('Please follow the official example.yml file')
-        sys.exit(0)
+        try:
+            sub_stuff = data[0]['Folders']
+        except Exception as e:
+            print('Please follow the official example.yml file')
+            sys.exit(0)
+
+        print(sub_stuff)
+
+        for folder in sub_stuff:
+            print('Folder is: ', folder)
+
+            folder_to_create = folder['name']
+            create_folder(folder_to_create)
+
+            urls = folder['url']
+
+            folder_download = './{}'.format(folder_to_create)
+            for url in urls:
+                download_file_aria2c(url, folder_download)
+
+            print('----------------------\n')
 
 
-    print(sub_stuff)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='A tutorial of argparse!')
+    parser.add_argument("--config_file", help='config file in YAML format to download images')
 
-    for folder in sub_stuff:
-        print('Folder is: ', folder)
+    parser.add_argument("--directory", help='directory to download images')
 
-        folder_to_create = folder['name']
-        create_folder(folder_to_create)
+    args = parser.parse_args()
 
-        urls = folder['url']
+    # load arguments
+    config_file = args.config_file
+    directory = args.directory
 
-        folder_download =  './{}'.format(folder_to_create)
-        for url in urls:
-            download_file_aria2c(url,folder_download)
-
-        print('----------------------\n')
-
-
-
-test = 1
+    main(config_file, directory)
