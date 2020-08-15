@@ -5,9 +5,11 @@ with open('example.yml') as f:
     data = yaml.load(f)
     print(data)
 
-    for doc in data:
-        for k, v in doc.items():
-            print(k, "->", v)
+    sub_stuff = data[0]['Folders']
+    print(sub_stuff)
+    # for doc in data:
+    #     for k, v in doc.items():
+    #         print(k, "->", v)
 
 
 test = 1

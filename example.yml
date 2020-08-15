@@ -1,5 +1,5 @@
 - Images:
-    - Folders:
+  Folders:
         - name: POP
           url:
               - https://pop-iso.sfo2.cdn.digitaloceanspaces.com/20.04/amd64/nvidia/11/pop-os_20.04_amd64_nvidia_11.iso
