@@ -5,7 +5,8 @@ import os
 import subprocess
 from pathlib import Path
 
-
+# https://www.geeksforgeeks.org/create-a-directory-in-python/
+# TODO adapt this part to create custom folder at location
 def create_folder(dirName):
     # Create target Directory if don't exist
     if not os.path.exists(dirName):
@@ -60,7 +61,7 @@ def main(config_file, download_location):
 
             urls = folder['url']
 
-            folder_download = './{}'.format(folder_to_create)
+            folder_download = download_location / folder_to_create
             for url in urls:
                 download_file_aria2c(url, folder_download)
 
