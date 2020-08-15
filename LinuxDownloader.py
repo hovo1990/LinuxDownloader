@@ -14,19 +14,15 @@ def create_folder(dirName):
 
 def strip_filename(url):
     path = url
-    firstpos = path.rfind("/")
-    lastpos = len(path)
-    filename = path[firstpos + 1:lastpos]
+    first_pos = path.rfind("/")
+    last_pos = len(path)
+    filename = path[first_pos + 1:last_pos]
     path = filename
     if 'torrent' in filename:
-        firstpos = 0
-        lastpos = path.rfind(".torrent")
-        filename = path[firstpos:lastpos]
+        first_pos = 0
+        last_pos = path.rfind(".torrent")
+        filename = path[first_pos:last_pos]
     return filename
-
-test = 'https://pop-iso.sfo2.cdn.digitaloceanspaces.com/20.04/amd64/nvidia/11/pop-os_20.04_amd64_nvidia_11.iso.torrent'
-test1 = strip_filename(test)
-print(test1)
 
 
 def download_file_aria2c(url, download_folder):
