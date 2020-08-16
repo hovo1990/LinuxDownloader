@@ -9,6 +9,7 @@
               - https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso.torrent
               - http://cdimage.ubuntu.com/ubuntu-budgie/releases/20.04.1/release/ubuntu-budgie-20.04.1-desktop-amd64.iso.torrent
               - https://cdimage.ubuntu.com/lubuntu/releases/20.04.1/release/lubuntu-20.04.1-desktop-amd64.iso.torrent
+              - http://cdimage.ubuntu.com/ubuntukylin/releases/20.04.1/release/ubuntukylin-20.04.1-desktop-amd64.iso.torrent
         - name: Security
           url:
             - https://tails.boum.org/torrents/files/tails-amd64-4.9.iso.torrent
@@ -19,3 +20,28 @@
           url:
             - https://torrents.linuxmint.com/torrents/linuxmint-20-cinnamon-64bit.iso.torrent
             - https://torrents.linuxmint.com/torrents/linuxmint-20-mate-64bit.iso.torrent
+        - name: Fedora
+          url:
+            - https://torrent.fedoraproject.org/torrents/Fedora-Workstation-Live-x86_64-32.torrent
+        - name: Manjaro
+          url:
+            - https://osdn.net/projects/manjaro/storage/kde/20.0.3/manjaro-kde-20.0.3-200606-linux56.iso.torrent
+        - name: Tools
+          url:
+            - https://netix.dl.sourceforge.net/project/boot-repair-cd/boot-repair-disk-64bit.iso
+            - https://mirrors.xtom.com/osdn//clonezilla/73264/clonezilla-live-2.6.7-28-amd64.iso
+            - https://www.hirensbootcd.org/files/HBCD_PE_x64.iso
+            - https://cdn-101.anonfiles.com/B5V7G658oe/9dbe8d90-1597554640/WinPE10_8_Sergei_Strelec_x86_x64_2020.06.09_English.rar
+        - name: BSD
+          url:
+            - https://download.freebsd.org/ftp/releases/amd64/amd64/ISO-IMAGES/12.1/FreeBSD-12.1-RELEASE-amd64-dvd1.iso
+            - https://download.ghostbsd.org/releases/amd64/20.08.04/GhostBSD-20.08.04.iso.torrent
+        - name: Light
+          url:
+            - http://ftp.sh.cvut.cz/slax/Slax-9.x/slax-64bit-9.11.0.iso
+            - http://distro.ibiblio.org/puppylinux/puppy-bionic/bionicpup32/bionicpup32-8.0-uefi.iso
+            - https://netix.dl.sourceforge.net/project/bodhilinux/5.1.0/bodhi-5.1.0-legacy.iso.torrent
+            - http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-standard-3.12.0-x86_64.iso
+        - name: NAS
+          url:
+            - https://netix.dl.sourceforge.net/project/openmediavault/5.3.9/openmediavault_5.3.9-amd64.iso
