@@ -7,13 +7,17 @@ from pathlib import Path
 
 # https://www.geeksforgeeks.org/create-a-directory-in-python/
 # TODO adapt this part to create custom folder at location
-def create_folder(dirName):
+def create_folder(dirName, parent_dir='.'):
     # Create target Directory if don't exist
-    if not os.path.exists(dirName):
-        os.mkdir(dirName)
-        print("Directory ", dirName, " Created ")
+
+    # Path
+    path = os.path.join(parent_dir, dirName)
+
+    if not os.path.exists(path):
+        os.mkdir(path)
+        print("Directory ", path, " Created ")
     else:
-        print("Directory ", dirName, " already exists")
+        print("Directory ", path, " already exists")
 
 
 def strip_filename(url):
@@ -57,13 +61,13 @@ def main(config_file, download_location):
             print('Folder is: ', folder)
 
             folder_to_create = folder['name']
-            create_folder(folder_to_create)
+            create_folder(folder_to_create, download_location)
 
             urls = folder['url']
 
-            folder_download = download_location / folder_to_create
-            for url in urls:
-                download_file_aria2c(url, folder_download)
+            # folder_download = download_location / folder_to_create
+            # for url in urls:
+            #     download_file_aria2c(url, folder_download)
 
             print('----------------------\n')
 
@@ -71,6 +75,7 @@ def main(config_file, download_location):
 if __name__ == "__main__":
 
     path_to_download_folder = str(os.path.join(Path.home(), "Downloads"))
+    print(path_to_download_folder)
 
     parser = argparse.ArgumentParser(description='A tutorial of argparse!')
     parser.add_argument("--config_file", help='config file in YAML format to download images')
