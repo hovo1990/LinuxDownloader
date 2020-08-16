@@ -42,7 +42,7 @@ def download_file_aria2c(url, download_folder, download_speed_limit=0):
     else:
         print('Downloading file: ' + afile)
         subprocess.Popen(["aria2c", "-x", "16", "-s", "20", "-d", "{}".format(download_folder),
-                          '--max-overall-download-limit={}'.format(download_speed_limit), '--auto-file-renaming=false', str(url)]).wait()
+                          '--max-overall-download-limit={}'.format(download_speed_limit), '--auto-file-renaming=false', '--seed-time=0', str(url)]).wait()
 
 
 def main(config_file, download_location, max_download_limit):
