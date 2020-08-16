@@ -31,6 +31,7 @@
             - https://netix.dl.sourceforge.net/project/boot-repair-cd/boot-repair-disk-64bit.iso
             - https://mirrors.xtom.com/osdn//clonezilla/73264/clonezilla-live-2.6.7-28-amd64.iso
             - https://www.hirensbootcd.org/files/HBCD_PE_x64.iso
+            - https://download.eset.com/com/eset/tools/recovery/rescue_cd/latest/eset_sysrescue_live_enu.iso
             - https://cdn-101.anonfiles.com/B5V7G658oe/9dbe8d90-1597554640/WinPE10_8_Sergei_Strelec_x86_x64_2020.06.09_English.rar
         - name: BSD
           url:
@@ -45,3 +46,6 @@
         - name: NAS
           url:
             - https://netix.dl.sourceforge.net/project/openmediavault/5.3.9/openmediavault_5.3.9-amd64.iso
+        - name: Virtualization
+          url:
+            - https://proxmox.com/en/downloads?task=callelement&format=raw&item_id=513&element=f85c494b-2b32-4109-b8c1-083cca2b7db6&method=download&args[0]=199745ad2e5fb1f035950693699c52d4
