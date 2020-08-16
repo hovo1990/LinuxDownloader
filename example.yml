@@ -32,6 +32,7 @@
             - https://mirrors.xtom.com/osdn//clonezilla/73264/clonezilla-live-2.6.7-28-amd64.iso
             - https://www.hirensbootcd.org/files/HBCD_PE_x64.iso
             - https://download.eset.com/com/eset/tools/recovery/rescue_cd/latest/eset_sysrescue_live_enu.iso
+            - https://osdn.net/projects/systemrescuecd/storage/releases/6.1.7/systemrescuecd-amd64-6.1.7.iso
             - https://cdn-101.anonfiles.com/B5V7G658oe/9dbe8d90-1597554640/WinPE10_8_Sergei_Strelec_x86_x64_2020.06.09_English.rar
         - name: BSD
           url:
@@ -43,6 +44,8 @@
             - http://distro.ibiblio.org/puppylinux/puppy-bionic/bionicpup32/bionicpup32-8.0-uefi.iso
             - https://netix.dl.sourceforge.net/project/bodhilinux/5.1.0/bodhi-5.1.0-legacy.iso.torrent
             - http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-standard-3.12.0-x86_64.iso
+            - http://l2.mxrepo.com/torrents/antiX-19.2_386-full.iso.torrent
+            - http://l2.mxrepo.com/torrents/antiX-19.2_x64-full.iso.torrent
         - name: NAS
           url:
             - https://netix.dl.sourceforge.net/project/openmediavault/5.3.9/openmediavault_5.3.9-amd64.iso
