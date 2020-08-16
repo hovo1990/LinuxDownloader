@@ -57,17 +57,22 @@ def main(config_file, download_location):
 
         print(sub_stuff)
 
+        # Create "LinuxDownloader" folder at download location
+        folder_name = 'LinuxDownloader'
+        create_folder(folder_name, download_location)
+        final_download_location = os.path.join(download_location, folder_name)
+
         for folder in sub_stuff:
             print('Folder is: ', folder)
 
             folder_to_create = folder['name']
-            create_folder(folder_to_create, download_location)
+            create_folder(folder_to_create, final_download_location)
 
             urls = folder['url']
 
-            # folder_download = download_location / folder_to_create
-            # for url in urls:
-            #     download_file_aria2c(url, folder_download)
+            folder_download = os.path.join(final_download_location, folder_to_create)#final_download_location / folder_to_create
+            for url in urls:
+                download_file_aria2c(url, folder_download)
 
             print('----------------------\n')
 
