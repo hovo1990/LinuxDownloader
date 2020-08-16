@@ -5,6 +5,7 @@ import os
 import subprocess
 from pathlib import Path
 
+
 # https://www.geeksforgeeks.org/create-a-directory-in-python/
 # TODO adapt this part to create custom folder at location
 def create_folder(dirName, parent_dir='.'):
@@ -33,17 +34,18 @@ def strip_filename(url):
     return filename
 
 
-def download_file_aria2c(url, download_folder):
+def download_file_aria2c(url, download_folder, download_speed_limit=0):
     # download (using aria2c) files
     afile = strip_filename(url)
     if os.path.exists(afile) and not os.path.exists(afile + '.aria2'):
         print('Skipping already-retrieved file: ' + afile)
     else:
         print('Downloading file: ' + afile)
-        subprocess.Popen(["aria2c", "-x", "16", "-s", "20", "-d", "{}".format(download_folder), str(url)]).wait()
+        subprocess.Popen(["aria2c", "-x", "16", "-s", "20", "-d", "{}".format(download_folder),
+                          '--max-overall-download-limit={}'.format(download_speed_limit), str(url)]).wait()
 
 
-def main(config_file, download_location):
+def main(config_file, download_location, max_download_limit):
     with open(config_file) as f:
         # data = yaml.load(f, Loader=yaml.FullLoader)
         data = yaml.load(f)
@@ -70,15 +72,15 @@ def main(config_file, download_location):
 
             urls = folder['url']
 
-            folder_download = os.path.join(final_download_location, folder_to_create)#final_download_location / folder_to_create
+            folder_download = os.path.join(final_download_location,
+                                           folder_to_create)  # final_download_location / folder_to_create
             for url in urls:
-                download_file_aria2c(url, folder_download)
+                download_file_aria2c(url, folder_download, download_speed_limit=max_download_limit)
 
             print('----------------------\n')
 
 
 if __name__ == "__main__":
-
     path_to_download_folder = str(os.path.join(Path.home(), "Downloads"))
     print(path_to_download_folder)
 
@@ -86,13 +88,15 @@ if __name__ == "__main__":
     parser.add_argument("--config_file", help='config file in YAML format to download images')
 
     parser.add_argument("--directory", help='directory to download images', default=path_to_download_folder)
+    parser.add_argument("--max_download_limit", help='limit Download speed using aria2c', default='5M')
 
     args = parser.parse_args()
 
     # load arguments
     config_file = args.config_file
     directory = args.directory
+    max_download_limit = args.max_download_limit
 
-    main(config_file, directory)
+    main(config_file, directory, max_download_limit)
     print('Finished downloading all files')
-    print('----'*10)
+    print('----' * 10)
