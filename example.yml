@@ -8,3 +8,14 @@
           url:
               - https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso.torrent
               - http://cdimage.ubuntu.com/ubuntu-budgie/releases/20.04.1/release/ubuntu-budgie-20.04.1-desktop-amd64.iso.torrent
+              - https://cdimage.ubuntu.com/lubuntu/releases/20.04.1/release/lubuntu-20.04.1-desktop-amd64.iso.torrent
+        - name: Security
+          url:
+            - https://tails.boum.org/torrents/files/tails-amd64-4.9.iso.torrent
+            - https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.0.3-x86_64.torrent
+            - https://images.offensive-security.com/kali-linux-2020.2-live-amd64.iso.torrent
+            - https://download.parrot.sh/parrot/iso/4.9.1/Parrot-security-4.9.1_x64.iso.torrent
+        - name: Mint
+          url:
+            - https://torrents.linuxmint.com/torrents/linuxmint-20-cinnamon-64bit.iso.torrent
+            - https://torrents.linuxmint.com/torrents/linuxmint-20-mate-64bit.iso.torrent
